@@ -1,0 +1,272 @@
+/* html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+} */
+
+footer {
+    width: 100%;
+}
+/* Top welcome bar */
+.top-welcome {
+    background: #f8fbff;
+    color: #222;
+    font-size: 15px;
+    padding: 10px 30px;
+    border-bottom: 1px solid #dbe6f3;
+}
+
+/* Header */
+.header-area {
+    font-family: 'Inter', sans-serif; /* 加这行 */
+    background: linear-gradient(90deg, #73c2bf, #5aa6ff);
+    padding: 0 30px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.main-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Nav */
+.nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    position: relative;
+    list-style: none;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+    display: block;
+}
+
+.nav li a:hover {
+    opacity: 0.85;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 38px;
+    left: 0;
+    min-width: 180px;
+    background: white;
+    padding: 8px 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    color: #333;
+    padding: 10px 16px;
+    font-size: 15px;
+}
+
+.dropdown-menu li a:hover {
+    background: #f2f7ff;
+    color: #156ef0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Right buttons */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-btn {
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.header-btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* Dashboard content */
+.dashboard-container {
+    padding: 40px 40px 50px;
+}
+
+.dashboard-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #1f2d3d;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 36px 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.card h2 {
+    margin: 0 0 24px;
+    font-size: 18px;
+    color: #444;
+}
+
+.card p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #1572ff;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-area {
+        height: auto;
+        padding: 16px 20px;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .header-buttons {
+        flex-wrap: wrap;
+    }
+
+    .dashboard-container {
+        padding: 30px 20px 40px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+footer {
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: linear-gradient(90deg, #73c2bf, #5aa6ff);;
+    color: white;
+    padding: 40px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 260px;
+}
+
+.footer-column h4 {
+    margin: 0 0 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #e6e6e6;
+    text-decoration: none;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    background: #222;
+    color: #aaa;
+    padding: 15px;
+    box-sizing: border-box;
+}

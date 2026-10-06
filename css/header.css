@@ -1,0 +1,265 @@
+/* ================= GLOBAL (全局) ================= */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    /* 默认给 Header 留出 80px 空间 */
+    padding-top: 80px; 
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f2f4f8;
+}
+
+/* 核心修正：当处于登录或注册页（Header 消失时），取消 body 的内边距 */
+body.page-login, body.page-register {
+    padding-top: 0 !important;
+    background: #f8f9fa;
+}
+
+.page-login div[style*="max-width:800px"] {
+    margin-top: 50px !important; /* 让格子离顶部的青色条稍微近一点，更好看 */
+}
+
+main {
+    flex: 1; /* 确保内容区自动撑开，把 footer 推到底部 */
+}
+
+/* ================= HEADER (导航栏基础) ================= */
+.header-area {
+    background: linear-gradient(90deg, #73c2bf, #5aa6a0);
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    padding: 0 50px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; 
+}
+
+/* Logo 样式 */
+.logo a {
+    font-family: 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
+/* ================= NAVIGATION (中间菜单) ================= */
+
+.nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+}
+
+.nav li {
+    position: relative;
+}
+
+.nav li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: 0.3s ease;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.nav li a:hover,
+.nav li a.active {
+    background-color: #0099FF;
+    color: white;
+}
+
+/* 下拉菜单 (Dropdown) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 10px 0;
+    list-style: none;
+    min-width: 180px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    color: #333 !important;
+    display: block;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+    color: #0099FF !important;
+}
+
+/* ================= RIGHT BUTTONS (核心交互区) ================= */
+.header-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+/* 购物车图标样式 */
+.icon-btn {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    color: #0099FF;
+    transform: scale(1.1);
+}
+
+/* 按钮通用样式 (Login, Register, Profile) */
+.header-btn {
+    color: white;
+    border: 1px solid white;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    white-space: nowrap; 
+    display: inline-block;
+    text-align: center;
+}
+
+.header-btn:hover {
+    background: white;
+    color: #5aa6a0;
+}
+
+/* 特殊样式的登出按钮 */
+.logout-style {
+    background: #ff4444 !important;
+    border: 1px solid #ff4444 !important;
+    color: white !important;
+}
+
+.logout-style:hover {
+    background: #cc0000 !important;
+    border-color: #cc0000 !important;
+}
+
+/* ================= 页面特定控制 (暴力隐藏逻辑) ================= */
+
+/* 只有当不需要 Header 的页面使用了特定 class 且你想手动微调按钮时使用 */
+.page-login .btn-login,
+.page-register .btn-register {
+    display: none !important;
+}
+
+/* 彻底永久封杀 Welcome 栏 */
+.top-welcome {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ================= FOOTER (页脚) ================= */
+footer {
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    background: #20B2AA;
+    color: white;
+    padding: 60px 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #73c2bf;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    background: #222;
+    color: #aaa;
+    padding: 20px;
+    font-size: 14px;
+}
+
+/* ================= RESPONSIVE (响应式) ================= */
+@media (max-width: 1024px) {
+    .header-area { padding: 0 20px; }
+    .nav { gap: 10px; }
+}
+
+@media (max-width: 768px) {
+    .nav { display: none; }
+}
